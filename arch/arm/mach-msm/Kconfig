@@ -2804,5 +2804,4 @@ config SEMC_CAMERA_8MP
 	default n
 	help
 	  Increased PMEP_ADSP for phones with 8MP sensors.
-
 endif

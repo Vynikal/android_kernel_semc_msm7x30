@@ -577,13 +577,13 @@ static int qdss_bind_config(struct usb_configuration *c, const char *name)
 		status = usb_string_id(c->cdev);
 		if (status < 0)
 			return status;
-		qdss_string_defs[QDSS_CTRL_IDX].id = status;
+		q	dss_string_defs[QDSS_CTRL_IDX].id = status;
 		qdss_ctrl_intf_desc.iInterface = status;
 	}
 
 	spin_lock_irqsave(&d_lock, flags);
 	list_for_each_entry(ch, &usb_qdss_ch_list, list) {
-		if (!strncmp(name, ch->name, sizeof(*ch->name))) {
+		if (!strcmp(name, ch->name)) {
 			found = 1;
 			break;
 		}
@@ -737,7 +737,7 @@ struct usb_qdss_ch *usb_qdss_open(const char *name, void *priv,
 	spin_lock_irqsave(&d_lock, flags);
 	/* Check if we already have a channel with this name */
 	list_for_each_entry(ch, &usb_qdss_ch_list, list) {
-		if (!strncmp(name, ch->name, sizeof(*ch->name))) {
+		if (!strcmp(name, ch->name)) {
 			found = 1;
 			break;
 		}

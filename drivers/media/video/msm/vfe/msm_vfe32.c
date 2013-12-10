@@ -7022,6 +7022,7 @@ void axi_stop(struct msm_cam_media_controller *pmctl,
 	if (!rc)
 		pr_err("%s: Timeout while recovery in progress", __func__);
 	CDBG("%s: Done waiting for overflow recovery to complete", __func__);
+	axi_ctrl->share_ctrl->stop_issued = TRUE;
 
 	switch (vfe_params.cmd_type) {
 	case AXI_CMD_PREVIEW:

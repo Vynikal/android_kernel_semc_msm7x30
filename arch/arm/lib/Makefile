@@ -6,7 +6,6 @@
 
 lib-y		:= backtrace.o changebit.o csumipv6.o csumpartial.o   \
 		   csumpartialcopy.o csumpartialcopyuser.o clearbit.o \
-		   strncpy_from_user.o strnlen_user.o                 \
 		   delay.o findbit.o memchr.o
 
 # Build memcpy and memmove only if GLibC versions are not used

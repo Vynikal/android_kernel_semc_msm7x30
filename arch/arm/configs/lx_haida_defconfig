@@ -1,4 +1,3 @@
-#
 # Automatically generated file; DO NOT EDIT.
 # Linux/arm 3.4.0 Kernel Configuration
 #
@@ -620,6 +619,7 @@ CONFIG_ALIGNMENT_TRAP=y
 # CONFIG_DEPRECATED_PARAM_STRUCT is not set
 # CONFIG_ARM_FLUSH_CONSOLE_ON_RESTART is not set
 # CONFIG_CP_ACCESS is not set
+CONFIG_ARM_USE_GLIBC_MEMCOPY=y
 
 #
 # Boot options

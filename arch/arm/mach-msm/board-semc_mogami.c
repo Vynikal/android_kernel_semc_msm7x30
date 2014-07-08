@@ -252,10 +252,10 @@ static struct platform_device ion_dev;
 #ifdef CONFIG_MSM_ION_MM_USE_CMA
 #define MSM_ION_MM_SIZE		0x3000000
 #else
-#define MSM_ION_MM_SIZE		0x1C80000
+#define MSM_ION_MM_SIZE		0x1B00000
 #endif
-#define MSM_ION_AUDIO_SIZE	0x200000
-#define MSM_ION_SF_SIZE		0x1C00000
+#define MSM_ION_AUDIO_SIZE	0x90000
+#define MSM_ION_SF_SIZE		0xA00000
 #define MSM_ION_WB_SIZE		MSM_FB_OVERLAY0_WRITEBACK_SIZE
 #define MSM_ION_HEAP_NUM	5
 #endif

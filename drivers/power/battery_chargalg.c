@@ -527,7 +527,7 @@ static int battery_chargalg_get_ext_data(struct device *dev, void *data)
 
 	for (i = 0; i < ext->num_supplicants; i++) {
 		if (strncmp(ext->supplied_to[i], psy->name,
-			sizeof(ext->supplied_to[i])))
+			sizeof(*(ext->supplied_to[i]))))
 			continue;
 
 		batt = (POWER_SUPPLY_TYPE_BATTERY == ext->type);

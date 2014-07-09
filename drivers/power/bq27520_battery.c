@@ -1971,7 +1971,7 @@ static int get_supplier_data(struct device *dev, void *data)
 
 	for (i = 0; i < pst->num_supplicants; i++) {
 		if (strncmp(pst->supplied_to[i], psy->name,
-			sizeof(pst->supplied_to[i])))
+			sizeof(*(pst->supplied_to[i]))))
 			continue;
 
 		if (!pst->get_property(pst, POWER_SUPPLY_PROP_TEMP, &ret)) {

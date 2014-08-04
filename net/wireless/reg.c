@@ -911,14 +911,11 @@ static void handle_channel(struct wiphy *wiphy,
 		 * Devices that have their own custom regulatory domain
 		 * but also use WIPHY_FLAG_STRICT_REGULATORY will follow the
 		 * passed country IE power settings.
-		 *
-		 * Devices that use NL80211_COUNTRY_IE_FOLLOW_POWER will always
-		 * follow the passed country IE power settings.
 		 */
 		if (initiator == NL80211_REGDOM_SET_BY_COUNTRY_IE &&
-		    (wiphy->country_ie_pref & NL80211_COUNTRY_IE_FOLLOW_POWER) ||
-		    wiphy->flags & WIPHY_FLAG_CUSTOM_REGULATORY &&
-		    wiphy->flags & WIPHY_FLAG_STRICT_REGULATORY))
+		    (wiphy->country_ie_pref & NL80211_COUNTRY_IE_FOLLOW_POWER ||
+		     wiphy->flags & WIPHY_FLAG_CUSTOM_REGULATORY &&
+		     wiphy->flags & WIPHY_FLAG_STRICT_REGULATORY))
 			chan->max_power = chan->max_reg_power;
 		else
 			chan->max_power = min(chan->orig_mpwr,
@@ -1368,8 +1365,11 @@ static int ignore_request(struct wiphy *wiphy,
 		return 0;
 	case NL80211_REGDOM_SET_BY_DRIVER:
 		if (last_request->initiator == NL80211_REGDOM_SET_BY_CORE) {
-			if (regdom_changes(pending_request->alpha2))
-				return 0;
+			if (regdom_changes(pending_request->alpha2)) {
+				if (!wiphy->regd)
+					return 0;
+				return REG_INTERSECT;
+			}
 			return -EALREADY;
 		}
 

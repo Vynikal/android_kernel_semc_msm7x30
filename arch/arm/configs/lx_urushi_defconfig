@@ -3181,11 +3181,7 @@ CONFIG_IOMMU_SUPPORT=y
 #
 # File systems
 #
-<<<<<<< HEAD
 CONFIG_DCACHE_WORD_ACCESS=y
-# CONFIG_EXT2_FS is not set
-# CONFIG_EXT3_FS is not set
-=======
 CONFIG_EXT2_FS=y
 CONFIG_EXT2_FS_XATTR=y
 # CONFIG_EXT2_FS_POSIX_ACL is not set
@@ -3196,7 +3192,6 @@ CONFIG_EXT3_FS=y
 CONFIG_EXT3_FS_XATTR=y
 # CONFIG_EXT3_FS_POSIX_ACL is not set
 CONFIG_EXT3_FS_SECURITY=y
->>>>>>> 298047e... defconfigs: Squashed revert of changes
 CONFIG_EXT4_FS=y
 CONFIG_EXT4_FS_XATTR=y
 # CONFIG_EXT4_FS_POSIX_ACL is not set

@@ -298,7 +298,7 @@ static ssize_t print_switch_state(struct switch_dev *sdev, char *buf)
 static inline enum chg_type usb_get_chg_type(struct usb_info *ui)
 {
 #ifdef CONFIG_FORCE_FAST_CHARGE
-	if ((readl(USB_PORTSC) & PORTSC_LS) == PORTSC_LS || force_fast_charge) {
+	if ((readl_relaxed(USB_PORTSC) & PORTSC_LS) == PORTSC_LS || force_fast_charge) {
 #else
 	if ((readl_relaxed(USB_PORTSC) & PORTSC_LS) == PORTSC_LS) {
 #endif

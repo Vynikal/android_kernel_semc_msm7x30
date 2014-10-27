@@ -273,8 +273,8 @@ int ping_init_sock(struct sock *sk)
 	ret = -EACCES;
 
 out_release_group:
-    put_group_info(group_info);
-    return ret;
+	put_group_info(group_info);
+	return ret;
 }
 EXPORT_SYMBOL_GPL(ping_init_sock);
 
